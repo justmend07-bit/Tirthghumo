@@ -9,23 +9,31 @@ import { Menu, X } from "lucide-react";
 export default function SuccessPage() {
     const router = useRouter();
     const [menuOpen, setMenuOpen] = useState(false);
-    //   useEffect(() => {
-    //     const paymentSuccess = sessionStorage.getItem('paymentSuccess');
+   useEffect(() => {
+    // ✅ Allow only if redirected from payment page
+    const paymentSuccess = sessionStorage.getItem('paymentSuccess');
 
-    //     if(!paymentSuccess) {
-    //         router.replace('/');
-    //     } else{
-    //         sessionStorage.removeItem('paymentSuccess');
-    //     }
+    if (!paymentSuccess) {
+      // 🚫 Redirect user if they directly access the success page
+      router.replace('/');
+      return;
+    }
 
-    //     const handlePopState = () => {
-    //         router.replace('/');
-    //     }
-    //     window.addEventListener('popstate', handlePopState);
-    //     return () => {
-    //         window.removeEventListener('popstate', handlePopState);
-    //     }
-    //   },[router]);
+    // ✅ Remove session flag when user leaves or closes tab
+    const cleanup = () => sessionStorage.removeItem('paymentSuccess');
+    window.addEventListener('beforeunload', cleanup);
+
+    // ✅ Prevent back navigation to payment page
+    const handlePopState = () => router.replace('/');
+    window.addEventListener('popstate', handlePopState);
+
+    // ✅ Cleanup event listeners
+    return () => {
+      window.removeEventListener('beforeunload', cleanup);
+      window.removeEventListener('popstate', handlePopState);
+    };
+  }, [router]);
+
 
 
     return (
@@ -165,19 +173,19 @@ export default function SuccessPage() {
 
                 <div className="flex justify-center gap-6 mb-6">
                     <a
-                        href="#"
+                        href="https://www.facebook.com/people/TirthGhumo/61574751792264/#" target="_blank"
                         className="bg-gray-300 hover:bg-gray-200 p-3 rounded-full transition"
                     >
                         <FaFacebook className="text-2xl " />
                     </a>
                     <a
-                        href="#"
+                        href="https://www.instagram.com/tirthghumo?igsh=MW02ejMyMnRxeXBpNQ==" target="_blank"
                         className="bg-gray-300 hover:bg-gray-200 p-3 rounded-full transition"
                     >
                         <FaInstagram className="text-2xl " />
                     </a>
                     <a
-                        href="#"
+                        href="https://www.linkedin.com/company/tirthghumo/" target="_blank"
                         className="bg-gray-300 hover:bg-gray-200 p-3 rounded-full transition"
                     >
                         <FaLinkedin className="text-2xl " />
