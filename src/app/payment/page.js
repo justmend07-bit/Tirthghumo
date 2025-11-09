@@ -277,7 +277,7 @@ export default function PaymentPage() {
                                 className="mt-1 mr-2"
                             />
                             <label className="text-sm text-black font-bold">
-                                Our team will do everything to ensure you have a memorable trip. In case of unforeseen weather conditions , unavoidable circumstances or cancellation from your side , refunds cannot be provided. Thank you for your kind understanding. 🌿✨ Acknowledgement : Travel date : 9th Nov  I understand and agree to the above terms with love & respect.
+                                Our team will do everything to ensure you have a memorable trip. In case of unforeseen weather conditions , unavoidable circumstances or cancellation from your side , refunds cannot be provided. Thank you for your kind understanding. 🌿✨ Acknowledgement : Travel date : 23rd Nov  I understand and agree to the above terms with love & respect.
 
                             </label>
                         </div>
