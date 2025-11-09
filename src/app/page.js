@@ -161,7 +161,7 @@ export default function TrekRegistration() {
       desc: "Gathered beneath the ancient temple’s grandeur — a reminder that every journey is sacred when shared together.",
     },
     {
-      src: "/trek/peak.jpg",
+      src: "/trek/peak.JPG",
       title: "Peak Serenity",
       desc: "At the edge of the summit, where the climb meets calm — finding peace in the heights we once only dreamed of reaching.",
     },
