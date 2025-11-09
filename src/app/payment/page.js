@@ -65,23 +65,22 @@ export default function PaymentPage() {
         setIsSubmitting(true);
 
         const data = new FormData();
-        // data.append('payment_screenshot', screenshot);
-        // data.append('form_data', JSON.stringify(formData));
-        data.append('full_name', formData.fullName);
-        data.append('email_address', formData.email);
-        data.append('age', formData.age);
-        data.append('gender', formData.gender);
-        data.append('contact_number', formData.contactNumber);
-        data.append('whatsapp_number', formData.whatsappNumber);
-        data.append('college_name', formData.collegeName);
-        data.append('pick_up_loc', formData.pickUpLocation);
-        data.append('drop_loc', formData.dropLocation);
-        data.append('meal_preference', formData.mealPreference);
-        data.append('trip_exp_level', formData.experienceLevel);
-        data.append('medical_details', formData.medicalDetails);
-        data.append('agree', 'true');
-        data.append('payment_screenshot', screenshot, screenshot.name);
-
+        data.append('payment_screenshot', screenshot);
+        Object.entries({
+            full_name: formData.fullName,
+            email_address: formData.email,
+            age: formData.age,
+            gender: formData.gender,
+            contact_number: formData.contactNumber,
+            whatsapp_number: formData.whatsappNumber,
+            pick_up_loc: formData.pickUpLocation,
+            drop_loc: formData.dropLocation,
+            meal_preference: formData.mealPreference,
+            trip_exp_level: formData.experienceLevel,
+            medical_details: formData.medicalDetails,
+            agree: true
+        }).forEach(([key, value]) => data.append(key, value));
+        
         try {
             const response = await fetch(`${API_URL}/odt_booking`, {
                 method: 'POST',
