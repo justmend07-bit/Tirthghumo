@@ -156,7 +156,7 @@ export default function TrekRegistration() {
       desc: "Celebrating the achievement together.",
     },
     {
-      src: "/trek/temple.jpg",
+      src: "/trek/new.JPG",
       title: "Temple Triumph",
       desc: "Gathered beneath the ancient temple’s grandeur — a reminder that every journey is sacred when shared together.",
     },
