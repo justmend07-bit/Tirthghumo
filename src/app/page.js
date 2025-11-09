@@ -16,7 +16,7 @@ export default function TrekRegistration() {
   const [menuOpen, setMenuOpen] = useState(false);
   const VideoTestimonials = dynamic(
     () => import("@/component/video.js"),
-    { ssr: false } // ✅ disables SSR to prevent hydration mismatch
+    { ssr: false }
   );
 
   const [formData, setFormData] = useState({
@@ -38,42 +38,42 @@ export default function TrekRegistration() {
     {
       name: "Ms. Aaradhana",
       text: "Tirth Ghumo made our Panchmarhi friend trip completely hassle free and smooth. Food, accomodation and travel was perfectly arranged. Truely a stress-free experience.",
-      image: "/reviews/MsAaradhana.jpg",
+      image: "/reviews/thumbnail1.jpg",
       highlight: false,
       rating: 5,
     },
     {
       name: "Mr. Vatsal",
       text: "Had an amzing time with Tirth Ghumo. Every moment was full of fun and excitement. From delicious food to thrilling adventures, everything was perfectly on track and made  the trip truly unforgettable.",
-      image: "/reviews/MrVatsal.jpg",
+      image: "/reviews/thumbnail2.jpg",
       highlight: false,
       rating: 5,
     },
     {
       name: "Ms. Shruti",
       text: "I had been thinking of taking a break for a long time. Thank you, Tirth Ghumo, for making it happen. Created memories that will last a lifetime.",
-      image: "/reviews/MsShruti.jpg",
+      image: "/reviews/thumbnail3.jpg",
       highlight: false,
       rating: 5,
     },
     {
       name: "Mr. Adarsh",
       text: "Everything went so smoothly with Tirth Ghumo. It truly felt less like a trip with a company and more like a journey with friends. The comfort, care, and vibe made the whole experience unforgettable.",
-      image: "/reviews/MrAdarsh.jpg",
+      image: "/reviews/thumbnail4.jpg",
       highlight: false,
-      rating: 50,
+      rating: 5,
     },
     {
       name: "Ms. Sakshi",
       text: "Amazing experience with Tirth Ghumo! Professional, knowledgeable and friendly team. Perfectly curated itinerary and unforgettable memories.",
-      image: "/reviews/MsSakshi.jpg",
+      image: "/reviews/thumbnail5.jpg",
       highlight: false,
       rating: 5,
     },
     {
       name: "Mr. Sagar & Mrs.Komal",
       text: "Our first trip after marriage couldn't have been more perfect! Panchmarhi's scenic beauty, the adventures, and Tirth Ghumo's well-planned itinerary made everything smooth and stress-free. A big thanks to the team for adding a friendly, homely vibe that made our journey even more special.",
-      image: "/reviews/Sagar.jpg",
+      image: "/reviews/thumbnail6.jpg",
       highlight: false,
       rating: 5,
     },
@@ -100,7 +100,10 @@ export default function TrekRegistration() {
     setIsSubmitting(true);
     setSubmitStatus({ type: null, message: '' });
 
-    localStorage.setItem('RegistrationFormData', JSON.stringify(formData));
+    if (typeof window !== "undefined") {
+  localStorage.setItem('RegistrationFormData', JSON.stringify(formData));
+}
+
     router.push('/payment');
   };
 
@@ -197,10 +200,10 @@ export default function TrekRegistration() {
   ];
 
   return (
-    <div className="relative min-h-screen bg-linear-to-t to-amber-100 via-orange-50 from-white overflow-hidden ">
+    <div className="relative min-h-screen bg-gradient-to-t to-amber-100 via-orange-50 from-white overflow-hidden ">
 
 
-      <nav className="w-full h-16 fixed top-0 left-0 z-50 bg-linear-to-r from-white/80 via-amber-50/70 to-orange-100/70 backdrop-blur-md shadow-sm border-b border-orange-200">
+      <nav className="w-full h-16 fixed top-0 left-0 z-50 bg-gradient-to-r from-white/80 via-amber-50/70 to-orange-100/70 backdrop-blur-md shadow-sm border-b border-orange-200">
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-full relative">
 
 
@@ -211,6 +214,7 @@ export default function TrekRegistration() {
               width={200}
               height={60}
               className="rounded-xl hover:scale-105 transition-transform duration-300"
+              
             />
           </div>
 
@@ -220,7 +224,7 @@ export default function TrekRegistration() {
               <a href="https://tirthghumo.in/" className="hover:text-orange-600 transition-colors">
                 Home
               </a>
-              <a href="#register" className="hover:text-orange-600 transition-colors">
+              <a href="#register"  className="hover:text-orange-600 transition-colors">
                 Register
               </a>
               <a href="#about" className="hover:text-orange-600 transition-colors">
@@ -243,7 +247,7 @@ export default function TrekRegistration() {
 
         {/* Mobile Dropdown Menu */}
         {menuOpen && (
-          <div className="md:hidden bg-linear-to-b from-white/90 to-amber-100/80 backdrop-blur-md shadow-md border-t border-orange-200">
+          <div className="md:hidden bg-gradient-to-b from-white/90 to-amber-100/80 backdrop-blur-md shadow-md border-t border-orange-200">
             <div className="flex flex-col items-center py-4 space-y-4 text-gray-700 font-semibold text-base">
               <a
                 href="https://tirthghumo.in/"
@@ -292,12 +296,16 @@ export default function TrekRegistration() {
       <div className="relative z-10">
         {/* Hero Section */}
         <div className="relative h-[400px] rounded-3xl mx-4 mt-20 overflow-hidden">
-          <div className="absolute inset-0 bg-linear-to-b from-transparent to-black/40" />
-          <img
-            src="/trek/1Day (3).jpg"
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/40" />
+          <Image
+            src="/trek/hero.jpg"
             alt="Mountain landscape at sunrise"
+            width={1200}
+            height={600}
             className="w-full h-full object-cover object-[center_-500px]"
+            priority
           />
+
           <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-4">
             <h1 className="text-5xl font-bold mb-3">1 Day Adventure Trek</h1>
             <p className="text-lg mb-6">November 23, 2025 | Join the Adventure</p>
@@ -312,9 +320,9 @@ export default function TrekRegistration() {
 
         {/* About The Trek */}
         <div className="max-w-6xl mx-auto px-4 py-16">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-transparent bg-clip-text bg-linear-to-r from-orange-500 via-amber-500 to-yellow-400 mb-10 text-center relative">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-orange-500 via-amber-500 to-yellow-400 mb-10 text-center relative">
             About the Trek
-            <span className="block w-20 h-1 bg-linear-to-r from-orange-400 to-amber-300 mx-auto mt-3 rounded-full"></span>
+            <span className="block w-20 h-1 bg-gradient-to-r from-orange-400 to-amber-300 mx-auto mt-3 rounded-full"></span>
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
@@ -336,9 +344,9 @@ export default function TrekRegistration() {
 
         {/* 🗓️ Itinerary Section */}
         <section className="max-w-6xl mx-auto px-4 py-16">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-transparent bg-clip-text bg-linear-to-r from-orange-500 via-amber-500 to-yellow-400 mb-10 text-center relative">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-orange-500 via-amber-500 to-yellow-400 mb-10 text-center relative">
             Trek Itinerary
-            <span className="block w-20 h-1 bg-linear-to-r from-orange-400 to-amber-300 mx-auto mt-3 rounded-full"></span>
+            <span className="block w-20 h-1 bg-gradient-to-r from-orange-400 to-amber-300 mx-auto mt-3 rounded-full"></span>
           </h2>
 
 
@@ -349,15 +357,16 @@ export default function TrekRegistration() {
                 desc: "Comfortable AC bus from Bhopal to Bhojpur ensuring a relaxed and scenic journey.",
                 icon: "🚌",
               },
-              {
-                title: "Breakfast at Bhojpur",
-                desc: "Start your day with a delicious complimentary breakfast amidst serene surroundings.",
-                icon: "🍳",
-              },
+
               {
                 title: "Sightseeing & Exploration",
                 desc: "Explore Bhojpur’s ancient temples and scenic trails as per the planned route.",
                 icon: "🗺️",
+              },
+              {
+                title: "Breakfast at Bhojpur",
+                desc: "Start your day with a delicious complimentary breakfast amidst serene surroundings.",
+                icon: "🍳",
               },
               {
                 title: "Fun Games & Group Activities",
@@ -376,7 +385,7 @@ export default function TrekRegistration() {
               },
               {
                 title: "Campfire Cooking",
-                desc: "End the adventure with a cozy campfire and live cooking experience under the stars.",
+                desc: "End the adventure with a cozy campfire and live cooking experience.",
                 icon: "🔥",
               },
             ].map((item, i) => (
@@ -384,7 +393,7 @@ export default function TrekRegistration() {
                 key={i}
                 className="flex items-start gap-4 bg-white shadow-md rounded-2xl p-5 hover:shadow-xl transition-shadow duration-300"
               >
-                <div className="text-3xl bg-linear-to-br from-orange-300 to-amber-200 rounded-full p-3">
+                <div className="text-3xl bg-gradient-to-br from-orange-300 to-amber-200 rounded-full p-3">
                   {item.icon}
                 </div>
                 <div>
@@ -400,9 +409,9 @@ export default function TrekRegistration() {
 
         {/* Glimpses from the Trail */}
         <div className="max-w-6xl mx-auto px-4 py-16">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-transparent bg-clip-text bg-linear-to-r from-orange-500 via-amber-500 to-yellow-400 mb-10 text-center relative">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-orange-500 via-amber-500 to-yellow-400 mb-10 text-center relative">
             Glimpses from the Trail
-            <span className="block w-20 h-1 bg-linear-to-r from-orange-400 to-amber-300 mx-auto mt-3 rounded-full"></span>
+            <span className="block w-20 h-1 bg-gradient-to-r from-orange-400 to-amber-300 mx-auto mt-3 rounded-full"></span>
           </h2>
 
 
@@ -763,8 +772,8 @@ export default function TrekRegistration() {
                   Medical Details
                 </label>
                 <textarea
-                  name="additionalComments"
-                  value={formData.additionalComments}
+                  name="medicalDetails"
+                  value={formData.medicalDetails}
                   onChange={handleInputChange}
                   placeholder="Any medical conditions or allergies?"
                   rows={2}
@@ -794,7 +803,7 @@ export default function TrekRegistration() {
             </form>
           </div>
         </div>
-        <VideoTestimonial />
+        <VideoTestimonials />
         <Footer />
       </div>
     </div >
