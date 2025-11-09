@@ -3,21 +3,16 @@ import Footer from '@/component/footer';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import Image from 'next/image';
-import VideoTestimonial from '@/component/video.js';
 import useEmblaCarousel from 'embla-carousel-react';
 import { useCallback, useEffect } from 'react';
 import { ArrowLeftCircle, ArrowRightCircle, Star } from 'lucide-react';
-import dynamic from "next/dynamic";
 import { Menu, X } from "lucide-react";
 
 //swiper
 export default function TrekRegistration() {
   const router = useRouter();
   const [menuOpen, setMenuOpen] = useState(false);
-  const VideoTestimonials = dynamic(
-    () => import("@/component/video.js"),
-    { ssr: false }
-  );
+  
 
   const [formData, setFormData] = useState({
     fullName: '',
@@ -109,27 +104,16 @@ export default function TrekRegistration() {
 
   //carousel 
   const [emblaRefGallery, emblaApiGallery] = useEmblaCarousel({ loop: false, align: "start" });
-  const [emblaRefTestimonials, emblaApiTestimonials] = useEmblaCarousel({ loop: false, align: "start" });
+   const [emblaRefTestimonials, emblaApiTestimonials] = useEmblaCarousel({ loop: false, align: "start" });
 
 
 
-  const scrollPrevGallery = useCallback(() => {
-    if (emblaApiGallery) emblaApiGallery.scrollPrev();
-  }, [emblaApiGallery]);
+  const scrollPrevGallery = useCallback(() => emblaApiGallery && emblaApiGallery.scrollPrev(), [emblaApiGallery]);
+  const scrollNextGallery = useCallback(() => emblaApiGallery && emblaApiGallery.scrollNext(), [emblaApiGallery]);
 
-  const scrollNextGallery = useCallback(() => {
-    if (emblaApiGallery) emblaApiGallery.scrollNext();
-  }, [emblaApiGallery]);
-
-
-  const scrollPrevTestimonials = useCallback(() => {
-    if (emblaApiTestimonials) emblaApiTestimonials.scrollPrev();
-  }, [emblaApiTestimonials]);
-
-  const scrollNextTestimonials = useCallback(() => {
-    if (emblaApiTestimonials) emblaApiTestimonials.scrollNext();
-  }, [emblaApiTestimonials]);
-
+  const scrollPrevTestimonials = useCallback(() => emblaApiTestimonials && emblaApiTestimonials.scrollPrev(), [emblaApiTestimonials]);
+  const scrollNextTestimonials = useCallback(() => emblaApiTestimonials && emblaApiTestimonials.scrollNext(), [emblaApiTestimonials]);
+  
   // Scroll sideways
   useEffect(() => {
     if (!emblaApiGallery) return;
@@ -148,25 +132,9 @@ export default function TrekRegistration() {
     return () => node.removeEventListener("wheel", handleWheel);
   }, [emblaApiGallery]);
 
-  useEffect(() => {
-    if (!emblaApiTestimonials) return;
-
-    const node = emblaApiTestimonials.containerNode();
-
-    const handleWheel = (e) => {
-      if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
-        e.preventDefault();
-        e.deltaX > 0 ? emblaApiTestimonials.scrollNext() : emblaApiTestimonials.scrollPrev();
-      }
-    };
-
-    node.addEventListener("wheel", handleWheel, { passive: false });
-
-    return () => node.removeEventListener("wheel", handleWheel);
-  }, [emblaApiTestimonials]);
 
 
-  const gallery = [
+    const gallery = [
     {
       src: "/trek/bhojpur.jpg",
       title: "Bhojpur",
@@ -188,14 +156,14 @@ export default function TrekRegistration() {
       desc: "Celebrating the achievement together.",
     },
     {
-      src: "/trek/summit.jpg",
-      title: "Summit Success",
-      desc: "Celebrating the achievement together.",
+      src: "/trek/temple.jpg",
+      title: "Temple Triumph",
+      desc: "Gathered beneath the ancient temple’s grandeur — a reminder that every journey is sacred when shared together.",
     },
     {
-      src: "/trek/summit.jpg",
-      title: "Summit Success",
-      desc: "Celebrating the achievement together.",
+      src: "/trek/peak.jpg",
+      title: "Peak Serenity",
+      desc: "At the edge of the summit, where the climb meets calm — finding peace in the heights we once only dreamed of reaching.",
     },
   ];
 
@@ -803,7 +771,7 @@ export default function TrekRegistration() {
             </form>
           </div>
         </div>
-        <VideoTestimonials />
+        
         <Footer />
       </div>
     </div >
