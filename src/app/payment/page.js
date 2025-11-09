@@ -68,11 +68,11 @@ export default function PaymentPage() {
         data.append('form_data', JSON.stringify(formData));
 
         try {
-            // const response = await fetch('https://your-fastapi-backend.com/register', {
-            //     method: 'POST',
-            //     body: data,
-            // });
-            const response = { ok: true }; // Testing
+            const response = await fetch('https://your-fastapi-backend.com/register', {
+                method: 'POST',
+                body: data,
+            });
+            
             if (response.ok) {
                 alert('Registration complete!');
                 localStorage.removeItem('RegistrationFormData');
@@ -212,12 +212,14 @@ export default function PaymentPage() {
                         {/* QR IMAGE */}
                         <div className="flex flex-col justify-center items-center mb-6 ">
                             <a href='/payment/QR.jpg' download="TirthGhumo_QR.jpg" >
-                                <img
+                                <Image
                                     src="/payment/QR.jpg"
                                     alt="QR Code"
-                                    className="w-60 h-auto object-cover rounded-lg shadow-xl hover:scale-108 transition-transform duration-300 "
-
+                                    width={240}
+                                    height={240}
+                                    className="rounded-lg shadow-xl hover:scale-105 transition-transform duration-300"
                                 />
+
                             </a>
                             <p className="text-lg text-gray-500 mt-5 underline ">UPI ID : 6204289831@ybl</p>
                             {/* Download QR */}
