@@ -176,18 +176,9 @@ export default function TrekRegistration() {
               alt="Tirth Ghumo Logo"
               width={110}
               height={110}
-              className="rounded-lg transition-transform duration-300 hover:scale-105
-                   w-14 sm:w-14 md:w-14 lg:w-16 xl:w-20 h-auto object-contain"
+              className="rounded-lg transition-transform duration-300 hover:scale-105 mt-5
+                   w-52 sm:w-58 md:w-60 lg:w-62 xl:w-68 h-auto object-contain"
             />
-
-            <div className="flex flex-col leading-tight">
-              <h1 className="text-xl sm:text-2xl md:text-2xl font-extrabold font-sans text-[#ff8c00] tracking-wide">
-                TIRTH GHUMO
-              </h1>
-              <p className="text-[10px] sm:text-[12px] md:text-xs font-semibold text-center text-[#0d2b55] tracking-wider">
-                AASTHA BHI, SUVIDHA BHI
-              </p>
-            </div>
           </div>
 
 
