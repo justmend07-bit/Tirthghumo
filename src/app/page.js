@@ -171,20 +171,30 @@ export default function TrekRegistration() {
     <div className="relative min-h-screen bg-gradient-to-t to-amber-100 via-orange-50 from-white overflow-hidden ">
 
 
-      <nav className="w-full h-16 fixed top-0 left-0 z-50 bg-gradient-to-r from-white/80 via-amber-50/70 to-orange-100/70 backdrop-blur-md shadow-sm border-b border-orange-200">
-        <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-full relative">
+      <nav className="w-full h-18 fixed top-0 left-0 z-50 bg-gradient-to-r from-white/80 via-amber-50/70 to-orange-100/70 backdrop-blur-md shadow-sm border-b border-orange-200">
+        <div className="max-w-7xl px-2 md:px-0 flex items-center justify-between h-full relative">
 
 
-          <div className="flex items-center space-x-3">
+          <div className="flex items-center space-x-1/2">
             <Image
               src="/logo.png"
               alt="Tirth Ghumo Logo"
-              width={200}
-              height={60}
-              className="rounded-xl hover:scale-105 transition-transform duration-300"
-              
+              width={110}
+              height={110}
+              className="rounded-lg transition-transform duration-300 hover:scale-105
+                   w-16 sm:w-12 md:w-14 lg:w-18 xl:w-22 h-auto object-contain"
             />
+
+            <div className="flex flex-col leading-tight">
+              <h1 className="text-xl sm:text-2xl md:text-2xl font-extrabold text-[#ff8c00] tracking-wide">
+                TIRTH GHUMO
+              </h1>
+              <p className="text-[10px] sm:text-[12px] md:text-xs font-semibold text-center text-[#0d2b55] tracking-wider">
+                AASTHA BHI, SUVIDHA BHI
+              </p>
+            </div>
           </div>
+
 
 
           <div className="hidden md:flex flex-1 justify-center">
