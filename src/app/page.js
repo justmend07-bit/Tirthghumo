@@ -179,6 +179,8 @@ export default function TrekRegistration() {
               className="rounded-lg transition-transform duration-300 hover:scale-105 mt-5
                    w-52 sm:w-58 md:w-60 lg:w-62 xl:w-68 h-auto object-contain"
             />
+
+            
           </div>
 
 
