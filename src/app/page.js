@@ -8,7 +8,7 @@ import { useCallback, useEffect } from 'react';
 import { ArrowLeftCircle, ArrowRightCircle, Star } from 'lucide-react';
 import { Menu, X } from "lucide-react";
 
-//swiper
+
 export default function TrekRegistration() {
   const router = useRouter();
   const [menuOpen, setMenuOpen] = useState(false);
