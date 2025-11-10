@@ -251,11 +251,11 @@ export default function TrekRegistration() {
       </nav>
       {/* <div className="fixed inset-0 -z-10">
         <Image
-          src="/trek/bg.png"
+          src="/trek/hero.png"
           alt="Mountain background"
           fill
           priority
-          className="object-cover object-center opacity-40"
+          className="w-full h-full object-cover 2xl:object-[center_-500px]"
         />
         <div className="absolute inset-0 bg-orange-200/30 mix-blend-overlay" />
       </div> */}
@@ -270,7 +270,7 @@ export default function TrekRegistration() {
             alt="Mountain landscape at sunrise"
             width={1200}
             height={600}
-            className="w-full h-full object-cover object-[center_-500px]"
+            className="w-full h-full object-cover 2xl:object-[center_-500px]"
             priority
           />
 
@@ -539,7 +539,7 @@ export default function TrekRegistration() {
                   onChange={handleInputChange}
                   placeholder="John Doe"
                   required
-                  className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-green-700"
+                  className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 text-black focus:outline-none focus:ring-2 focus:ring-green-700"
                 />
               </div>
 
@@ -558,7 +558,7 @@ export default function TrekRegistration() {
                     required
                     min="5"
                     max="100"
-                    className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-green-700"
+                    className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 text-black focus:outline-none focus:ring-2 focus:ring-green-700"
                   />
                 </div>
                 <div>
@@ -570,7 +570,7 @@ export default function TrekRegistration() {
                     value={formData.gender}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-green-700"
+                    className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 text-black focus:outline-none focus:ring-2 focus:ring-green-700"
                   >
                     <option value="">Gender</option>
                     <option value="male">Male</option>
@@ -593,7 +593,7 @@ export default function TrekRegistration() {
                   onChange={handleInputChange}
                   placeholder="946589XXXX"
                   required
-                  className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-green-700"
+                  className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 text-black focus:outline-none focus:ring-2 focus:ring-green-700"
                 />
               </div>
 
@@ -610,7 +610,7 @@ export default function TrekRegistration() {
                   placeholder="946589XXXX"
                   maxLength={10}
                   required
-                  className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-green-700"
+                  className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 text-black focus:outline-none focus:ring-2 focus:ring-green-700"
                 />
               </div>
 
@@ -626,7 +626,7 @@ export default function TrekRegistration() {
                   onChange={handleInputChange}
                   placeholder="you@example.com"
                   required
-                  className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-green-700"
+                  className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 text-black focus:outline-none focus:ring-2 focus:ring-green-700"
                 />
               </div>
 
@@ -641,7 +641,7 @@ export default function TrekRegistration() {
                   value={formData.collegeName}
                   onChange={handleInputChange}
                   placeholder="University of Adventure"
-                  className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-green-700"
+                  className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 text-black focus:outline-none focus:ring-2 focus:ring-green-700"
                 />
               </div>
 
@@ -656,17 +656,17 @@ export default function TrekRegistration() {
                     value={formData.pickUpLocation}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-green-700"
+                    className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 text-black focus:outline-none focus:ring-2 focus:ring-green-700"
                   >
-                    <option value="">Select pick up point</option>
-                    <option value="LNCT , Raisen Road">LNCT , Raisen Road</option>
-                    <option value="Siddharth Lake City">Siddharth Lake City</option>
-                    <option value="Anand Nagar">Anand Nagar</option>
-                    <option value="Ratnagiri">Ratnagiri</option>
-                    <option value="Piplani Petrol Pump">Piplani Petrol Pump</option>
-                    <option value="Indrapuri BHEL GATE">Indrapuri BHEL GATE</option>
-                    <option value="Jyoti Talkies , M.P.Nagar">Jyoti Talkies , M.P.Nagar</option>
-                    <option value="Rani Kamlapati Station">Rani Kamlapati Station</option>
+                    <option value="" className="text-black">Select pick up point</option>
+                    <option value="LNCT , Raisen Road" className="text-black">LNCT , Raisen Road</option>
+                    <option value="Siddharth Lake City" className="text-black">Siddharth Lake City</option>
+                    <option value="Anand Nagar" className="text-black">Anand Nagar</option>
+                    <option value="Ratnagiri" className="text-black">Ratnagiri</option>
+                    <option value="Piplani Petrol Pump" className="text-black">Piplani Petrol Pump</option>
+                    <option value="Indrapuri BHEL GATE" className="text-black">Indrapuri BHEL GATE</option>
+                    <option value="Jyoti Talkies , M.P.Nagar" className="text-black">Jyoti Talkies , M.P.Nagar</option>
+                    <option value="Rani Kamlapati Station" className="text-black">Rani Kamlapati Station</option>
 
                   </select>
                 </div>
@@ -679,17 +679,17 @@ export default function TrekRegistration() {
                     value={formData.dropLocation}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-green-700"
+                    className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 text-black focus:outline-none focus:ring-2 focus:ring-green-700"
                   >
-                    <option value="">Select pick up point</option>
-                    <option value="LNCT , Raisen Road">LNCT , Raisen Road</option>
-                    <option value="Siddharth Lake City">Siddharth Lake City</option>
-                    <option value="Anand Nagar">Anand Nagar</option>
-                    <option value="Ratnagiri">Ratnagiri</option>
-                    <option value="Piplani Petrol Pump">Piplani Petrol Pump</option>
-                    <option value="Indrapuri BHEL GATE">Indrapuri BHEL GATE</option>
-                    <option value="Jyoti Talkies , M.P.Nagar">Jyoti Talkies , M.P.Nagar</option>
-                    <option value="Rani Kamlapati Station">Rani Kamlapati Station</option>
+                    <option value="" className="text-black">Select pick up point</option>
+                    <option value="LNCT , Raisen Road" className="text-black">LNCT , Raisen Road</option>
+                    <option value="Siddharth Lake City" className="text-black">Siddharth Lake City</option>
+                    <option value="Anand Nagar" className="text-black">Anand Nagar</option>
+                    <option value="Ratnagiri" className="text-black">Ratnagiri</option>
+                    <option value="Piplani Petrol Pump" className="text-black">Piplani Petrol Pump</option>
+                    <option value="Indrapuri BHEL GATE" className="text-black">Indrapuri BHEL GATE</option>
+                    <option value="Jyoti Talkies , M.P.Nagar" className="text-black">Jyoti Talkies , M.P.Nagar</option>
+                    <option value="Rani Kamlapati Station" className="text-black">Rani Kamlapati Station</option>
                   </select>
                 </div>
               </div>
@@ -705,11 +705,11 @@ export default function TrekRegistration() {
                   value={formData.mealPreference}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-green-700"
+                  className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 text-black focus:outline-none focus:ring-2 focus:ring-green-700"
                 >
-                  <option value="">Select meal preference</option>
-                  <option value="Yes">Meal</option>
-                  <option value="No">No Meal</option>
+                  <option value="" className="text-black">Select meal preference</option>
+                  <option value="Yes" className="text-black">Meal</option>
+                  <option value="No" className="text-black">No Meal</option>
                 </select>
               </div>
 
@@ -723,13 +723,13 @@ export default function TrekRegistration() {
                   value={formData.experienceLevel}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-green-700"
+                  className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 text-black focus:outline-none focus:ring-2 focus:ring-green-700"
                 >
                   <option value="">Select your experience</option>
-                  <option value="beginner">Beginner - First time trekker</option>
-                  <option value="intermediate">Intermediate - Done a few treks</option>
-                  <option value="advanced">Advanced - Experienced trekker</option>
-                  <option value="expert">Expert - Professional level</option>
+                  <option value="beginner" className="text-black">Beginner - First time trekker</option>
+                  <option value="intermediate" className="text-black">Intermediate - Done a few treks</option>
+                  <option value="advanced" className="text-black">Advanced - Experienced trekker</option>
+                  <option value="expert" className="text-black">Expert - Professional level</option>
 
                 </select>
               </div>
@@ -745,7 +745,7 @@ export default function TrekRegistration() {
                   onChange={handleInputChange}
                   placeholder="Any medical conditions or allergies?"
                   rows={2}
-                  className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-green-700"
+                  className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 text-black focus:outline-none focus:ring-2 focus:ring-green-700"
                 />
               </div>
 
