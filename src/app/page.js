@@ -18,10 +18,10 @@ export default function TrekRegistration() {
     fullName: '',
     age: '',
     gender: '',
-    contactNumber: '',
+    contactNumber:'',
     whatsappNumber: '',
     email: '',
-    collegeName: '',
+    collegeName:'',
     pickUpLocation: '',
     dropLocation: '',
     mealPreference: '',
@@ -102,15 +102,12 @@ export default function TrekRegistration() {
     router.push('/payment');
   };
 
-  //carousel 
+  
   const [emblaRefGallery, emblaApiGallery] = useEmblaCarousel({ loop: false, align: "start" });
-   const [emblaRefTestimonials, emblaApiTestimonials] = useEmblaCarousel({ loop: false, align: "start" });
-
-
-
+  const [emblaRefTestimonials, emblaApiTestimonials] = useEmblaCarousel({ loop: false, align: "start" });
+  
   const scrollPrevGallery = useCallback(() => emblaApiGallery && emblaApiGallery.scrollPrev(), [emblaApiGallery]);
   const scrollNextGallery = useCallback(() => emblaApiGallery && emblaApiGallery.scrollNext(), [emblaApiGallery]);
-
   const scrollPrevTestimonials = useCallback(() => emblaApiTestimonials && emblaApiTestimonials.scrollPrev(), [emblaApiTestimonials]);
   const scrollNextTestimonials = useCallback(() => emblaApiTestimonials && emblaApiTestimonials.scrollNext(), [emblaApiTestimonials]);
   
@@ -131,8 +128,6 @@ export default function TrekRegistration() {
 
     return () => node.removeEventListener("wheel", handleWheel);
   }, [emblaApiGallery]);
-
-
 
     const gallery = [
     {
