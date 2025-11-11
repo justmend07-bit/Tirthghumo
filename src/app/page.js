@@ -278,7 +278,7 @@ export default function TrekRegistration() {
         </div>
 
         {/* About The Trek */}
-        <div className="max-w-6xl mx-auto px-4 py-16">
+  {/* <div className="max-w-6xl mx-auto px-4 py-16">
           <h2 className="text-3xl md:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-orange-500 via-amber-500 to-yellow-400 mb-10 text-center relative">
             About the Trek
             <span className="block w-20 h-1 bg-gradient-to-r from-orange-400 to-amber-300 mx-auto mt-3 rounded-full"></span>
@@ -298,7 +298,7 @@ export default function TrekRegistration() {
               </div>
             ))}
           </div>
-        </div>
+        </div> */}
 
 
         {/* 🗓️ Itinerary Section */}
@@ -325,7 +325,7 @@ export default function TrekRegistration() {
               {
                 title: "Breakfast at Bhojpur",
                 desc: "Start your day with a delicious complimentary breakfast amidst serene surroundings.",
-                icon: "🥗",
+                icon: "🍵",
               },
               {
                 title: "Fun Games & Group Activities",
