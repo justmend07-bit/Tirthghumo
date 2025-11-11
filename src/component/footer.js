@@ -19,16 +19,16 @@ export default function Footer() {
 
                     {/* Social Icons */}
                     <div className="flex items-center space-x-5 mt-8">
-                        <a href="#" className="bg-[#ffffff] p-3 rounded-full hover:bg-yellow-500 transition text-yellow-500 hover:text-[#ffffff] ">
+                        <a href="https://www.instagram.com/tirthghumo?igsh=MW02ejMyMnRxeXBpNQ==" target="_blank" className="bg-[#ffffff] p-3 rounded-full hover:bg-yellow-500 transition text-yellow-500 hover:text-[#ffffff] ">
                             <FaInstagram size={18} className="" />
                         </a>
                         <a href="#" className="bg-[#ffffff] p-3 rounded-full hover:bg-yellow-500 transition text-yellow-500 hover:text-[#ffffff]">
                             <FaWhatsapp size={18} className="" />
                         </a>
-                        <a href="#" className="bg-[#ffffff] p-3 rounded-full hover:bg-yellow-500 transition text-yellow-500 hover:text-[#ffffff]">
+                        <a href="https://www.facebook.com/people/TirthGhumo/61574751792264/#" target="_blank" className="bg-[#ffffff] p-3 rounded-full hover:bg-yellow-500 transition text-yellow-500 hover:text-[#ffffff]">
                             <FaFacebook size={18} className="" />
                         </a>
-                        <a href="#" className="bg-[#ffffff] p-3 rounded-full hover:bg-yellow-500 transition text-yellow-500 hover:text-[#ffffff]">
+                        <a href="https://www.linkedin.com/company/tirthghumo/" target="_blank" className="bg-[#ffffff] p-3 rounded-full hover:bg-yellow-500 transition text-yellow-500 hover:text-[#ffffff]">
                             <FaLinkedin size={18} className="" />
                         </a>
                         <a href="#" className="bg-[#ffffff] p-3 rounded-full hover:bg-yellow-500 transition text-yellow-500 hover:text-[#ffffff]">
