@@ -155,18 +155,18 @@ export default function TrekRegistration() {
     },
       {
       src: "/trek/beginning.jpg",
-      title: "Peak Serenity",
-      desc: "At the edge of the summit, where the climb meets calm — finding peace in the heights we once only dreamed of reaching.",
+      title: "Ready to Roll",
+      desc: "Energy high, spirits higher — the TG trip begins!",
     },
       {
-      src: "/trek/scene2.jpg",
-      title: "Peak Serenity",
+      src: "/trek/Scene2.jpg",
+      title: "Bhojpur Blessings",
       desc: "Spiritual calm meets adventure — only with Tirth Ghumo at Bhojpur.",
     },
       {
-      src: "/trek/scene1.jpg",
+      src: "/trek/Scene1.jpg",
       title: "Freedom Peak",
-      desc: "The signature pose — you know the rule 😎",
+      desc: "The signature pose — you know the rule!!",
     },
       {
       src: "/trek/The_group.jpg",
