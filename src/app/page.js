@@ -32,7 +32,7 @@ export default function TrekRegistration() {
   const testimonials = [
     {
       name: "Ms. Aaradhana",
-      text: "Tirth Ghumo made our Panchmarhi friend trip completely hassle free and smooth. Food, accomodation and travel was perfectly arranged. Truely a stress-free experience.",
+      text: "Tirth Ghumo made our friend trip completely hassle free and smooth. Food, accomodation and travel was perfectly arranged. Truely a stress-free experience.",
       image: "/reviews/thumbnail1.jpg",
       highlight: false,
       rating: 5,
@@ -62,13 +62,6 @@ export default function TrekRegistration() {
       name: "Ms. Sakshi",
       text: "Amazing experience with Tirth Ghumo! Professional, knowledgeable and friendly team. Perfectly curated itinerary and unforgettable memories.",
       image: "/reviews/thumbnail5.jpg",
-      highlight: false,
-      rating: 5,
-    },
-    {
-      name: "Mr. Sagar & Mrs.Komal",
-      text: "Our first trip after marriage couldn't have been more perfect! Panchmarhi's scenic beauty, the adventures, and Tirth Ghumo's well-planned itinerary made everything smooth and stress-free. A big thanks to the team for adding a friendly, homely vibe that made our journey even more special.",
-      image: "/reviews/thumbnail6.jpg",
       highlight: false,
       rating: 5,
     },
@@ -332,7 +325,7 @@ export default function TrekRegistration() {
               {
                 title: "Breakfast at Bhojpur",
                 desc: "Start your day with a delicious complimentary breakfast amidst serene surroundings.",
-                icon: "🍳",
+                icon: "🥗",
               },
               {
                 title: "Fun Games & Group Activities",
