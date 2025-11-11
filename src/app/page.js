@@ -144,9 +144,9 @@ export default function TrekRegistration() {
       desc: "Celebrating the achievement together.",
     },
     {
-      src: "/trek/new.JPG",
-      title: "Temple Triumph",
-      desc: "Gathered beneath the ancient temple’s grandeur — a reminder that every journey is sacred when shared together.",
+      src: "/trek/Scene1.jpg",
+      title: "Freedom Peak",
+      desc: "The signature pose — you know the rule!!",
     },
     {
       src: "/trek/peak.jpg",
@@ -163,10 +163,11 @@ export default function TrekRegistration() {
       title: "Bhojpur Blessings",
       desc: "Spiritual calm meets adventure — only with Tirth Ghumo at Bhojpur.",
     },
+      
       {
-      src: "/trek/Scene1.jpg",
-      title: "Freedom Peak",
-      desc: "The signature pose — you know the rule!!",
+      src: "/trek/new.JPG",
+      title: "Temple Triumph",
+      desc: "Gathered beneath the ancient temple’s grandeur — a reminder that every journey is sacred when shared together.",
     },
       {
       src: "/trek/The_group.jpg",
