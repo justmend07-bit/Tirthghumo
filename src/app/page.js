@@ -153,6 +153,26 @@ export default function TrekRegistration() {
       title: "Peak Serenity",
       desc: "At the edge of the summit, where the climb meets calm — finding peace in the heights we once only dreamed of reaching.",
     },
+      {
+      src: "/trek/beginning.jpg",
+      title: "Peak Serenity",
+      desc: "At the edge of the summit, where the climb meets calm — finding peace in the heights we once only dreamed of reaching.",
+    },
+      {
+      src: "/trek/scene2.jpg",
+      title: "Peak Serenity",
+      desc: "Spiritual calm meets adventure — only with Tirth Ghumo at Bhojpur.",
+    },
+      {
+      src: "/trek/scene1.jpg",
+      title: "Freedom Peak",
+      desc: "The signature pose — you know the rule 😎",
+    },
+      {
+      src: "/trek/The_group.jpg",
+      title: "Trek Group Stop",
+      desc: "Midway rest with fun, laughter, and shared moments among trekkers.",
+    },
   ];
 
   return (
