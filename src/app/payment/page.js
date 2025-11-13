@@ -4,6 +4,7 @@ import { useRouter } from 'next/navigation';
 import Image from 'next/image'
 import { Menu, X } from "lucide-react";
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
 export default function PaymentPage() {
     const router = useRouter();
@@ -64,7 +65,10 @@ export default function PaymentPage() {
 
         setIsSubmitting(true);
 
+
+
         const data = new FormData();
+        data.append('price', formData.price);
         data.append('payment_screenshot', screenshot);
         Object.entries({
             full_name: formData.fullName,
@@ -78,21 +82,30 @@ export default function PaymentPage() {
             meal_preference: formData.mealPreference,
             trip_exp_level: formData.experienceLevel,
             medical_details: formData.medicalDetails,
+
             agree: true
         }).forEach(([key, value]) => data.append(key, value));
-        
+
+
+
         try {
-            const response = await fetch(`${API_URL}/odt_booking`, {
+            const response1 = await fetch(`${API_URL}/odt_booking`, {
                 method: 'POST',
                 body: data,
             });
-            
-            if (response.ok) {
+            const response2 = await fetch(`${BASE_URL}/api/admin`, {
+                method: 'POST',
+                body: data,
+            });
+
+            if (response1.ok && response2.ok) {
                 alert('Registration complete!');
                 localStorage.removeItem('RegistrationFormData');
                 sessionStorage.setItem('paymentSuccess', 'true'); // to handle direct access to success page
                 router.push('/success');
             } else {
+
+
                 alert('Failed to submit data. Please try again.');
             }
         } catch (error) {
@@ -105,24 +118,30 @@ export default function PaymentPage() {
     if (!formData) return <p className="text-center p-8">Loading...</p>;
 
     return (
-        <div className="min-h-screen bg-[#FFFDF9] py-12 px-4 sm:px-6 lg:px-8">
-            {/* Navbar */}
-            <nav className="w-full h-16 fixed top-0 left-0 z-50 bg-gradient-to-r from-white/80 via-amber-50/70 to-orange-100/70 backdrop-blur-md shadow-sm border-b border-orange-200">
-                <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-full relative">
+        <div className="min-h-screen bg-[#FFFDF9] overflow-x-hidden py-12 px-4 sm:px-6 lg:px-8">
 
-                    {/* Logo (Always visible) */}
-                    <div className="flex items-center space-x-3">
+            {/* Navbar */}
+            <nav className="w-full h-18 fixed top-0 left-0 z-50 bg-gradient-to-r from-white/80 via-amber-50/70 to-orange-100/70 backdrop-blur-md shadow-sm border-b border-orange-200">
+                <div className="max-w-7xl px-2 md:px-0 flex items-center justify-between h-full relative">
+
+
+                    <div className="flex items-center space-x-1/2 ml-8">
                         <Image
                             src="/logo.png"
                             alt="Tirth Ghumo Logo"
-                            width={160}
-                            height={60}
-                            className="rounded-xl hover:scale-105 transition-transform duration-300"
+                            width={110}
+                            height={110}
+                            className="rounded-lg transition-transform duration-300 hover:scale-105 mt-5
+                               w-52 sm:w-58 md:w-60 lg:w-62 xl:w-68 h-auto object-contain"
                         />
+
+
                     </div>
 
-                    {/* Centered Navigation Links (Hidden on mobile) */}
-                    <div className="hidden md:flex flex-1 justify-center">
+
+
+
+                    <div className="hidden md:flex flex-1 justify-center sm:mr-20">
                         <div className="flex items-center space-x-8 text-gray-700 font-semibold text-sm md:text-base">
                             <a href="https://tirthghumo.in/" className="hover:text-orange-600 transition-colors">
                                 Home
@@ -130,16 +149,11 @@ export default function PaymentPage() {
                             <a href="#register" className="hover:text-orange-600 transition-colors">
                                 Register
                             </a>
-                            <a href="#about" className="hover:text-orange-600 transition-colors">
-                                About
-                            </a>
-                            <a href="#contact" className="hover:text-orange-600 transition-colors">
-                                Contact
-                            </a>
+
                         </div>
                     </div>
 
-                    {/* Hamburger Button (Visible on mobile) */}
+
                     <button
                         onClick={() => setMenuOpen(!menuOpen)}
                         className="md:hidden text-gray-700 focus:outline-none"
@@ -166,24 +180,12 @@ export default function PaymentPage() {
                             >
                                 Register
                             </a>
-                            <a
-                                href="#about"
-                                className="hover:text-orange-600 transition-colors"
-                                onClick={() => setMenuOpen(false)}
-                            >
-                                About
-                            </a>
-                            <a
-                                href="#contact"
-                                className="hover:text-orange-600 transition-colors"
-                                onClick={() => setMenuOpen(false)}
-                            >
-                                Contact
-                            </a>
+                            
                         </div>
                     </div>
                 )}
             </nav>
+
             <div className="max-w-5xl mx-auto mt-10">
                 <h1 className="text-3xl font-extrabold text-center text-[#1C1C1E]">
                     Almost There!
@@ -197,23 +199,25 @@ export default function PaymentPage() {
                     <div className="bg-white rounded-2xl shadow border border-gray-100 p-6">
                         <h2 className="text-2xl font-semibold text-gray-800 mb-6">Registration Summary</h2>
                         <div className="space-y-4 text-lg text-gray-700">
-                            <div className="grid grid-cols-2 gap-y-5">
-                                <p><strong>Full Name</strong><br />{formData.fullName}</p>
-                                <p><strong>Email Address</strong><br />{formData.email}</p>
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-5 break-word">
+                                <p className='break-word '><strong>Full Name</strong><br />{formData.fullName}</p>
+                                <p className='break-word '><strong>Email Address</strong><br />{formData.email}</p>
 
-                                <p><strong>Contact Number</strong><br />{formData.contactNumber}</p>
-                                <p><strong>Whatsapp Number</strong><br />{formData.whatsappNumber}</p>
+                                <p className='break-word '><strong>Contact Number</strong><br />{formData.contactNumber}</p>
+                                <p className='break-word '><strong>Whatsapp Number</strong><br />{formData.whatsappNumber}</p>
 
-                                <p><strong>Age & Gender</strong><br />{formData.age}, {formData.gender}</p>
-                                <p><strong>College Name</strong><br />{formData.collegeName}</p>
+                                <p className='break-word '><strong>Age & Gender</strong><br />{formData.age}, {formData.gender}</p>
+                                <p className='break-word '><strong>College Name</strong><br />{formData.collegeName}</p>
 
-                                <p><strong>Pick Up Location</strong><br />{formData.pickUpLocation}</p>
-                                <p><strong>Drop Location</strong><br />{formData.dropLocation}</p>
+                                <p className='break-word '><strong>Pick Up Location</strong><br />{formData.pickUpLocation}</p>
+                                <p className='break-word '><strong>Drop Location</strong><br />{formData.dropLocation}</p>
 
-                                <p><strong>Meal Preference</strong><br />{formData.mealPreference || '—'}</p>
-                                <p><strong>Trek Experience</strong><br />{formData.experienceLevel}</p>
+                                <p className='break-word '><strong>Meal Preference</strong><br />{formData.mealPreference || '—'}</p>
+                                <p className='break-word '><strong>Trek Experience</strong><br />{formData.experienceLevel}</p>
                             </div>
                         </div>
+                        <hr className='mt-8' />
+                        <p className='text-3xl mt-5 flex justify-between pr-10 sm:pr-35 lgpl-5 text-green-700 '><b>Price : </b> <b>₹{formData.price}</b></p>
                     </div>
 
                     {/* RIGHT COLUMN - PAYMENT */}
@@ -235,7 +239,7 @@ export default function PaymentPage() {
                                 />
 
                             </a>
-                            <p className="text-lg text-gray-500 mt-5 underline ">UPI ID : 6204289831@ybl</p>
+                            <p className="text-lg text-gray-500 mt-5 underline ">UPI ID : 6260499299@okbizaxis</p>
                             {/* Download QR */}
                             <a
                                 href="/payment/QR.jpg" download="TirthGhumo_QR.jpg" className='mt-4 inline-block text-lg text-blue-600 hover:underline'
