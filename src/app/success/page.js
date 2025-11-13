@@ -62,12 +62,7 @@ export default function SuccessPage() {
                             <a href="#register" className="hover:text-orange-600 transition-colors">
                                 Register
                             </a>
-                            <a href="#about" className="hover:text-orange-600 transition-colors">
-                                About
-                            </a>
-                            <a href="#contact" className="hover:text-orange-600 transition-colors">
-                                Contact
-                            </a>
+                            
                         </div>
                     </div>
 
@@ -98,20 +93,7 @@ export default function SuccessPage() {
                             >
                                 Register
                             </a>
-                            <a
-                                href="#about"
-                                className="hover:text-orange-600 transition-colors"
-                                onClick={() => setMenuOpen(false)}
-                            >
-                                About
-                            </a>
-                            <a
-                                href="#contact"
-                                className="hover:text-orange-600 transition-colors"
-                                onClick={() => setMenuOpen(false)}
-                            >
-                                Contact
-                            </a>
+                            
                         </div>
                     </div>
                 )}
@@ -203,3 +185,4 @@ export default function SuccessPage() {
         </div>
     );
 }
+
