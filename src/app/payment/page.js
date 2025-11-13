@@ -229,9 +229,9 @@ export default function PaymentPage() {
 
                         {/* QR IMAGE */}
                         <div className="flex flex-col justify-center items-center mb-6 ">
-                            <a href='/payment/QR.jpg' download="TirthGhumo_QR.jpg" >
+                            <a href='/payment/QR1.jpg' download="TirthGhumo_QR.jpg" >
                                 <Image
-                                    src="/payment/QR.jpg"
+                                    src="/payment/QR1.jpg"
                                     alt="QR Code"
                                     width={240}
                                     height={240}
@@ -242,7 +242,7 @@ export default function PaymentPage() {
                             <p className="text-lg text-gray-500 mt-5 underline ">UPI ID : 6260499299@okbizaxis</p>
                             {/* Download QR */}
                             <a
-                                href="/payment/QR.jpg" download="TirthGhumo_QR.jpg" className='mt-4 inline-block text-lg text-blue-600 hover:underline'
+                                href="/payment/QR1.jpg" download="TirthGhumo_QR.jpg" className='mt-4 inline-block text-lg text-blue-600 hover:underline'
                             >
                                 Download QR
                             </a>
