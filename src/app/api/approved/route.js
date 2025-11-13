@@ -40,7 +40,7 @@ export async function GET(req) {
         pass: process.env.EMAIL_PASS,
       },
     });
-    const today = new Date().toLocaleDateString("en-IN");
+    const date = new Date().toLocaleDateString("en-IN");
     const time = new Date().toLocaleTimeString("en-IN", {
       hour: "2-digit",
       minute: "2-digit",
