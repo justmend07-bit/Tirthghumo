@@ -40,28 +40,56 @@ export async function POST(req) {
 
     // ✅ Generate dynamic approval links
     const priceButtons = priceOptions
-      .map(
-        (p) => `
-        <a href="${baseUrl}/api/approved?email=${encodeURIComponent(
-          email
-        )}&name=${encodeURIComponent(fullName)}&status=accept&price=${p}" 
-           style="padding:10px 15px;margin:5px;background:#10B981;color:white;
-           text-decoration:none;border-radius:5px;font-family:Arial, sans-serif;">
-           Approve ₹${p}
-        </a>`
-      )
-      .join(" ");
+  .map(
+    (p) => `
+      <a href="${baseUrl}/api/approved?email=${encodeURIComponent(
+        email
+      )}&name=${encodeURIComponent(
+        fullName
+      )}&status=accept&price=${p}"
+        style="
+          display:block;
+          width:100%;
+          max-width:250px;
+          padding:12px 0;
+          margin:8px 0;
+          background:#10B981;
+          color:white;
+          text-align:center;
+          text-decoration:none;
+          border-radius:6px;
+          font-size:16px;
+        ">
+        Approve ₹${p}
+      </a>`
+  )
+  .join("");
+
 
     // ✅ Decline button
     const declineButton = `
-      <a href="${baseUrl}/api/approved?email=${encodeURIComponent(
-        email
-      )}&name=${encodeURIComponent(fullName)}&status=decline" 
-         style="padding:10px 15px;margin:5px;background:#EF4444;color:white;
-         text-decoration:none;border-radius:5px;font-family:Arial, sans-serif;">
-         Decline
-      </a>
-    `;
+  <a href="${baseUrl}/api/approved?email=${encodeURIComponent(
+    email
+  )}&name=${encodeURIComponent(
+    fullName
+  )}&status=decline"
+     style="
+        display:block;
+        width:100%;
+        max-width:250px;
+        padding:12px 0;
+        margin:8px 0;
+        background:#EF4444;
+        color:white;
+        text-align:center;
+        text-decoration:none;
+        border-radius:6px;
+        font-size:16px;
+     ">
+     Decline
+  </a>
+`;
+
 
     // ✅ Email content (HTML)
     const htmlBody = `
