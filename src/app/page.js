@@ -298,7 +298,8 @@ export default function TrekRegistration() {
           />
 
           <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-4">
-            <h1 className="text-5xl font-bold mb-3">1 Day Adventure Trek</h1>
+            <h1 className="text-5xl font-bold mb-3">1 Day Mirgannath Trek</h1>
+            <p className="text-3xl font-bold mb-6">Bhojpur/Budni</p>
             <p className="text-lg mb-6">November 23, 2025 | Join the Adventure</p>
             <a
               href="#register"
