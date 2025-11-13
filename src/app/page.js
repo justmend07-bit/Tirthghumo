@@ -171,7 +171,7 @@ export default function TrekRegistration() {
       desc: "The signature pose — you know the rule!!",
     },
     {
-      src: "/trek/peak.jpg",
+      src: "/trek/peak2.jpg",
       title: "Peak Serenity",
       desc: "At the edge of the summit, where the climb meets calm — finding peace in the heights we once only dreamed of reaching.",
     },
