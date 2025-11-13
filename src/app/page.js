@@ -31,8 +31,8 @@ export default function TrekRegistration() {
 
   const testimonials = [
     {
-      name: "Ms. Aaradhana",
-      text: "Tirth Ghumo made our friend trip completely hassle free and smooth. Food, accomodation and travel was perfectly arranged. Truely a stress-free experience.",
+      name: "Ms. Pahuni",
+      text: "The overall experience was genuinely amazing — from the trek itself to the river moments, the maggi , and the whole vibe of the journey. Everything felt fun, smooth, and memorable, and the team made it even better.",
       image: "/reviews/thumbnail1.jpg",
       highlight: false,
       rating: 5,
@@ -45,26 +45,27 @@ export default function TrekRegistration() {
       rating: 5,
     },
     {
-      name: "Ms. Shruti",
-      text: "I had been thinking of taking a break for a long time. Thank you, Tirth Ghumo, for making it happen. Created memories that will last a lifetime.",
+      name: "Mr. Manthan",
+      text: "The team was incredibly supportive throughout the trek. Even when the rain made the path slippery and scary, everyone helped each other at every step. The summit point was absolutely stunning — so beautiful that none of us wanted to come back. The whole experience, from the fun to the challenges, felt unforgettable.",
       image: "/reviews/thumbnail3.jpg",
       highlight: false,
       rating: 5,
     },
     {
-      name: "Mr. Adarsh",
-      text: "Everything went so smoothly with Tirth Ghumo. It truly felt less like a trip with a company and more like a journey with friends. The comfort, care, and vibe made the whole experience unforgettable.",
+      name: "Ms. Ojaswita",
+      text: "The trip turned out to be far more amazing than I expected — truly unexpected in the best way. It was my first trek with friends, and every moment felt unforgettable. The journey was adventurous, full of great vibes, and way better than anything I had imagined. From the views to the overall experience, everything came together perfectly and made it a trip worth remembering.",
       image: "/reviews/thumbnail4.jpg",
       highlight: false,
       rating: 5,
     },
     {
-      name: "Ms. Sakshi",
-      text: "Amazing experience with Tirth Ghumo! Professional, knowledgeable and friendly team. Perfectly curated itinerary and unforgettable memories.",
+      name: "Mr. Atharva",
+      text: "From start to finish, the entire journey was genuinely fun — not for a single moment did it feel dull. The team took us to beautiful spots, kept safety as a top priority, and made sure everyone felt comfortable throughout. The food was surprisingly good, the experience stayed smooth, and the overall vibe made the trip completely worth it. It turned out far better than expected and truly became one of those unforgettable adventures.",
       image: "/reviews/thumbnail5.jpg",
       highlight: false,
       rating: 5,
     },
+    
   ];
 
 
@@ -82,15 +83,21 @@ export default function TrekRegistration() {
     }));
   };
 
-  const handleSubmit = async (e) => {
+ const handleSubmit = async (e) => {
     e.preventDefault();
 
     setIsSubmitting(true);
     setSubmitStatus({ type: null, message: '' });
+    const price = formData.mealPreference === "Yes" ? 939 : 739;
+     const updatedData = {
+    ...formData,
+     
+    price: price
+  };
 
     if (typeof window !== "undefined") {
-  localStorage.setItem('RegistrationFormData', JSON.stringify(formData));
-}
+      localStorage.setItem('RegistrationFormData', JSON.stringify(updatedData));
+    }
 
     router.push('/payment');
   };
@@ -122,11 +129,26 @@ export default function TrekRegistration() {
     return () => node.removeEventListener("wheel", handleWheel);
   }, [emblaApiGallery]);
 
-    const gallery = [
+   const gallery = [
+    {
+      src: "/trek/beginning.jpg",
+      title: "Ready to Roll",
+      desc: "Energy high, spirits higher — the TG trip begins!",
+    },
     {
       src: "/trek/bhojpur.jpg",
       title: "Bhojpur",
       desc: "A historical site with ancient temple.",
+    },
+      {
+      src: "/trek/new.JPG",
+      title: "Temple Triumph",
+      desc: "Gathered beneath the ancient temple’s grandeur — a reminder that every journey is sacred when shared together.",
+    },
+     {
+      src: "/trek/The_group.jpg",
+      title: "Trek Group Stop",
+      desc: "Midway rest with fun, laughter, and shared moments among trekkers.",
     },
     {
       src: "/trek/TheAscent1.jpg",
@@ -134,9 +156,9 @@ export default function TrekRegistration() {
       desc: "A challenging climb with rewarding views.",
     },
     {
-      src: "/trek/riverside.jpg",
-      title: "Riverside",
-      desc: "Discover the local nature.",
+      src: "/trek/summit2.jpg",
+      title: "The heights",
+      desc: "Finding peace in the heights we once only dreamed of reaching.",
     },
     {
       src: "/trek/summit.jpg",
@@ -153,26 +175,15 @@ export default function TrekRegistration() {
       title: "Peak Serenity",
       desc: "At the edge of the summit, where the climb meets calm — finding peace in the heights we once only dreamed of reaching.",
     },
-      {
-      src: "/trek/beginning.jpg",
-      title: "Ready to Roll",
-      desc: "Energy high, spirits higher — the TG trip begins!",
-    },
-      {
+    {
       src: "/trek/Scene2.jpg",
       title: "Bhojpur Blessings",
       desc: "Spiritual calm meets adventure — only with Tirth Ghumo at Bhojpur.",
     },
-      
-      {
-      src: "/trek/new.JPG",
-      title: "Temple Triumph",
-      desc: "Gathered beneath the ancient temple’s grandeur — a reminder that every journey is sacred when shared together.",
-    },
-      {
-      src: "/trek/The_group.jpg",
-      title: "Trek Group Stop",
-      desc: "Midway rest with fun, laughter, and shared moments among trekkers.",
+    {
+      src: "/trek/riverside.jpg",
+      title: "Riverside",
+      desc: "Discover the local nature.",
     },
   ];
 
@@ -331,7 +342,7 @@ export default function TrekRegistration() {
 
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
+           {[
               {
                 title: "AC Traveller Ride",
                 desc: "Comfortable AC bus from Bhopal to Bhojpur ensuring a relaxed and scenic journey.",
@@ -340,17 +351,17 @@ export default function TrekRegistration() {
 
               {
                 title: "Sightseeing & Exploration",
-                desc: "Explore Bhojpur’s ancient temples and scenic trails as per the planned route.",
+                desc: "Explore Bhojpur’s ancient temple and scenic trails as per the planned route.",
                 icon: "🗺️",
               },
               {
                 title: "Breakfast at Bhojpur",
                 desc: "Start your day with a delicious complimentary breakfast amidst serene surroundings.",
-                icon: "🍵",
+                icon: "🍳",
               },
               {
                 title: "Fun Games & Group Activities",
-                desc: "Bond with fellow trekkers through fun outdoor games and team-building sessions.",
+                desc: "Bond with fellow trekkers through fun games along the travel and team-building sessions.",
                 icon: "🎯",
               },
               {
@@ -359,14 +370,24 @@ export default function TrekRegistration() {
                 icon: "🥤",
               },
               {
-                title: "Maggie by the Riverside",
+                title: "Summit",
+                desc: "Capture unforgettable moments at the breathtaking summit — the perfect spot for stunning selfies and scenic views!",
+                icon: "🏞️",
+              },
+              {
+                title: "Maggie by the Riverside (Seasonal)",
                 desc: "Enjoy a comforting bowl of maggie with a riverside view — a trekker’s delight!",
                 icon: "🍜",
               },
               {
-                title: "Campfire Cooking",
-                desc: "End the adventure with a cozy campfire and live cooking experience.",
-                icon: "🔥",
+                title: "Delicious Unlimited Meal (with meal plan)",
+                desc: "Relish a hearty, homely meal at a traditional dhaba — the perfect energy boost during your journey!",
+                icon: "🍽️",
+              },
+              {
+                title: "Back to Bhopal",
+                desc: "Comfortable return journey back to Bhopal after the event.",
+                icon: "🚌",
               },
             ].map((item, i) => (
               <div
@@ -670,15 +691,20 @@ export default function TrekRegistration() {
                     required
                     className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 text-black focus:outline-none focus:ring-2 focus:ring-green-700"
                   >
-                    <option value="" className="text-black">Select pick up point</option>
-                    <option value="LNCT , Raisen Road" className="text-black">LNCT , Raisen Road</option>
-                    <option value="Siddharth Lake City" className="text-black">Siddharth Lake City</option>
-                    <option value="Anand Nagar" className="text-black">Anand Nagar</option>
-                    <option value="Ratnagiri" className="text-black">Ratnagiri</option>
-                    <option value="Piplani Petrol Pump" className="text-black">Piplani Petrol Pump</option>
-                    <option value="Indrapuri BHEL GATE" className="text-black">Indrapuri BHEL GATE</option>
-                    <option value="Jyoti Talkies , M.P.Nagar" className="text-black">Jyoti Talkies , M.P.Nagar</option>
-                    <option value="Rani Kamlapati Station" className="text-black">Rani Kamlapati Station</option>
+                    <option value="">Select pick up point</option>
+                    <option value="LNCT , Raisen Road">LNCT , Raisen Road</option>
+                    <option value="Siddharth Lake City">Siddharth Lake City</option>
+                    <option value="Anand Nagar">Anand Nagar</option>
+                    <option value="Ratnagiri">Ratnagiri</option>
+                    <option value="Piplani Petrol Pump">Piplani Petrol Pump</option>
+                    <option value="Indrapuri BHEL GATE">Indrapuri BHEL GATE(In front of Reliance Digital)</option>
+                    <option value="Jk Road">JK Road</option>
+                    <option value="Jyoti Talkies , M.P.Nagar">Jyoti Talkies , M.P.Nagar</option>
+                    <option value="Rani Kamlapati Station">Rani Kamlapati Station(Platform No.1)</option>
+                    <option value="Barkatullah University">Barkatullah university</option>
+                    <option value="Ashima Mall">Ashima Mall</option>
+                    <option value="Capital Mall">Capital Mall</option>
+                    
 
                   </select>
                 </div>
@@ -693,19 +719,22 @@ export default function TrekRegistration() {
                     required
                     className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 text-black focus:outline-none focus:ring-2 focus:ring-green-700"
                   >
-                    <option value="" className="text-black">Select pick up point</option>
-                    <option value="LNCT , Raisen Road" className="text-black">LNCT , Raisen Road</option>
-                    <option value="Siddharth Lake City" className="text-black">Siddharth Lake City</option>
-                    <option value="Anand Nagar" className="text-black">Anand Nagar</option>
-                    <option value="Ratnagiri" className="text-black">Ratnagiri</option>
-                    <option value="Piplani Petrol Pump" className="text-black">Piplani Petrol Pump</option>
-                    <option value="Indrapuri BHEL GATE" className="text-black">Indrapuri BHEL GATE</option>
-                    <option value="Jyoti Talkies , M.P.Nagar" className="text-black">Jyoti Talkies , M.P.Nagar</option>
-                    <option value="Rani Kamlapati Station" className="text-black">Rani Kamlapati Station</option>
+                    <option value="">Select pick up point</option>
+                    <option value="LNCT , Raisen Road">LNCT , Raisen Road</option>
+                    <option value="Siddharth Lake City">Siddharth Lake City</option>
+                    <option value="Anand Nagar">Anand Nagar</option>
+                    <option value="Ratnagiri">Ratnagiri</option>
+                    <option value="Piplani Petrol Pump">Piplani Petrol Pump</option>
+                    <option value="Indrapuri BHEL GATE">Indrapuri BHEL GATE(In front of Reliance Digital)</option>
+                    <option value="Jk Road">JK Road</option>
+                    <option value="Jyoti Talkies , M.P.Nagar">Jyoti Talkies , M.P.Nagar</option>
+                    <option value="Rani Kamlapati Station">Rani Kamlapati Station(Platform No.1)</option>
+                    <option value="Barkatullah University">Barkatullah university</option>
+                    <option value="Ashima Mall">Ashima Mall</option>
+                    <option value="Capital Mall">Capital Mall</option>
                   </select>
                 </div>
               </div>
-
               {/* Meal options */}
 
               <div>
@@ -719,11 +748,12 @@ export default function TrekRegistration() {
                   required
                   className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 text-black focus:outline-none focus:ring-2 focus:ring-green-700"
                 >
-                  <option value="" className="text-black">Select meal preference</option>
-                  <option value="Yes" className="text-black">Meal</option>
-                  <option value="No" className="text-black">No Meal</option>
+                  <option value="">Select meal preference</option>
+                  <option value="Yes" className='font-semibold'>Meal (₹939)</option>
+                  <option value="No" >No Meal (₹739)</option>
                 </select>
               </div>
+
 
               {/* Trek Experience Level */}
               <div>
