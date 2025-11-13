@@ -206,7 +206,8 @@ export default function PaymentPage() {
                                 <p className='break-word '><strong>Contact Number</strong><br />{formData.contactNumber}</p>
                                 <p className='break-word '><strong>Whatsapp Number</strong><br />{formData.whatsappNumber}</p>
 
-                                <p className='break-word '><strong>Age & Gender</strong><br />{formData.age}, {formData.gender}</p>
+                                 <p className='break-word '><strong>Age</strong><br />{formData.age}</p>
+                                <p className='break-word '><strong>Gender</strong><br />{formData.gender}</p>
                                 <p className='break-word '><strong>College Name</strong><br />{formData.collegeName}</p>
 
                                 <p className='break-word '><strong>Pick Up Location</strong><br />{formData.pickUpLocation}</p>
