@@ -33,7 +33,7 @@ export async function POST(req) {
 
     // ✅ Base URL for approval links
     const baseUrl =
-      process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+      process.env.NEXT_PUBLIC_BASE_URL || "https://www.tirthghumo.com";
 
     // ✅ Available price options for admin
     const priceOptions = [739, 749, 759, 789, 939];
