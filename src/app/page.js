@@ -545,7 +545,7 @@ export default function TrekRegistration() {
                   name="fullName"
                   value={formData.fullName}
                   onChange={handleInputChange}
-                  placeholder="John Doe"
+                  placeholder="Shivam Kumar"
                   required
                   className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 text-black focus:outline-none focus:ring-2 focus:ring-green-700"
                 />
