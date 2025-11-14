@@ -640,11 +640,11 @@ export default function TrekRegistration() {
               {/* College Name */}
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  College Name<span className='text-red-600 text-sm'>*</span>
+                  Acadmic Status<span className='text-red-600 text-sm'>*</span>
                 </label>
                 <input
                   type="text"
-                  name="Academic status"
+                  name="collegeName"
                   value={formData.collegeName}
                   onChange={handleInputChange}
                   placeholder="Institution name / working professional"
