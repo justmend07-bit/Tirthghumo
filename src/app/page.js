@@ -13,7 +13,6 @@ export default function TrekRegistration() {
   const router = useRouter();
   const [menuOpen, setMenuOpen] = useState(false);
   
-
   const [formData, setFormData] = useState({
     fullName: '',
     age: '',
