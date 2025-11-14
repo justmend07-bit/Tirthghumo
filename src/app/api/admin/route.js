@@ -36,7 +36,7 @@ export async function POST(req) {
       process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
 
     // ✅ Available price options for admin
-    const priceOptions = [739, 749, 759, 789];
+    const priceOptions = [739, 749, 759, 789, 939];
 
     // ✅ Generate dynamic approval links
     const priceButtons = priceOptions
