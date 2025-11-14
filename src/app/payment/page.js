@@ -77,6 +77,7 @@ export default function PaymentPage() {
             gender: formData.gender,
             contact_number: formData.contactNumber,
             whatsapp_number: formData.whatsappNumber,
+            college_name: formData.collegeName,
             pick_up_loc: formData.pickUpLocation,
             drop_loc: formData.dropLocation,
             meal_preference: formData.mealPreference,
