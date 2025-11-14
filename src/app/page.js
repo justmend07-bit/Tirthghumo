@@ -644,10 +644,11 @@ export default function TrekRegistration() {
                 </label>
                 <input
                   type="text"
-                  name="collegeName"
+                  name="Academic status"
                   value={formData.collegeName}
                   onChange={handleInputChange}
-                  placeholder="University of Adventure"
+                  placeholder="Institution name / working professional"
+                  required
                   className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 text-black focus:outline-none focus:ring-2 focus:ring-green-700"
                 />
               </div>
