@@ -92,16 +92,21 @@ export default function PaymentPage() {
         try {
              // First form data
             const data1 = data;
-
+ const response1 = await fetch(`${API_URL}/odt_booking`, {
+                method: 'POST',
+                body: data1,
+            });
+            if (!response1.ok) {
+        alert("Failed to submit registration to server. Please try again.");
+        setIsSubmitting(false);
+        return;
+    }
             // Clone FormData for second request
             const data2 = new FormData();
             for (const [key, value] of data.entries()) {
             data2.append(key, value);
             }
-            const response1 = await fetch(`${API_URL}/odt_booking`, {
-                method: 'POST',
-                body: data1,
-            });
+           
             const response2 = await fetch(`${BASE_URL}/api/admin`, {
                 method: 'POST',
                 body: data2,
