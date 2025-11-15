@@ -36,7 +36,7 @@ export async function POST(req) {
       process.env.NEXT_PUBLIC_BASE_URL || "https://www.tirthghumo.com";
 
     // ✅ Available price options for admin
-    const priceOptions = [739, 749, 759, 789, 939];
+    const priceOptions = [719,739,899,909,939];
 
     // ✅ Generate dynamic approval links
     const priceButtons = priceOptions
