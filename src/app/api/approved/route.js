@@ -18,19 +18,72 @@ export async function GET(req) {
 
 
   if (status === "decline") {
+  try {
+    const transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
+      },
+    });
+
+    const safeName = name ? name : "there";
+
+    // Send decline email to the user
+    await transporter.sendMail({
+      from: `"TirthGhumo" <${process.env.EMAIL_USER}>`,
+      to: email,
+      subject: "Update on Your TirthGhumo Booking",
+      html: `
+        <div style="font-family:Arial, sans-serif; line-height:1.6; padding:20px;">
+
+          <p>Hey ${safeName},</p>
+
+          <p>
+            Thank you for choosing <b>TirthGhumo</b> for your adventure.  
+            We wanted to let you know that we've reviewed your recent booking attempt.  
+            Unfortunately, we couldn’t verify the payment details on our end.
+          </p>
+
+          <p>
+            This might be due to a mismatch in the transaction ID or some other discrepancy.
+          </p>
+
+          <p>
+            If you believe this is an error, please feel free to reach out to us at  
+            <b>6260499299</b> — we’ll be happy to help resolve the issue.
+          </p>
+
+          <p>
+            We appreciate your understanding and hope to welcome you on another adventure soon.
+          </p>
+
+          <p style="margin-top:10px;">
+            Warm regards,<br/>
+            <b>Team TirthGhumo</b>
+          </p>
+
+        </div>
+      `,
+    });
+
+    // Admin confirmation page
     return new NextResponse(
       `<html><body style="font-family:Arial; text-align:center; padding:50px;">
-         <h2 style="color:red;">❌ Registration Declined</h2>
-         <p>The registration for <b>${email}</b> has been declined.</p>
+         <h2 style="color:red;">Registration Declined</h2>
+         <p>A decline email has been sent to <b>${email}</b>.</p>
        </body></html>`,
       { headers: { "Content-Type": "text/html" } }
     );
+
+  } catch (err) {
+    console.error("Decline email error:", err);
+    return NextResponse.json({ error: err.message }, { status: 500 });
   }
+}
 
   try {
-    // Prepare invoice price and generate PDF
-    // const invoicePrice = price ? Number(price) : 0;
-    // const pdfBuffer = await generateInvoicePDF(name, email, invoicePrice, addOn );
+    
 
     //Configure mail transporter (Gmail)
     const transporter = nodemailer.createTransport({
@@ -46,7 +99,63 @@ export async function GET(req) {
       minute: "2-digit",
     });
     const dateTime = `${date} — ${time}`;
+ 
+    if (Number(price) === 500) {
+      await transporter.sendMail({
+        from: `"TirthGhumo" <${process.env.EMAIL_USER}>`,
+        to: email,
+        subject: "Partial Payment Received – Action Required",
+        html: `
+          <div style="font-family:Arial, sans-serif; line-height:1.6; padding:20px;">
+            <h2 style="color:#ff6600;">Hey ${name} 🌿</h2>
 
+            <p>
+              We have received your <b>partial payment of ₹500</b> for 
+              <b>1 Day Mrignnath Trek on 23rd November</b>.
+            </p>
+
+            <p>
+              All essential trip details, including timings and instructions, 
+              will be shared shortly on <b>WhatsApp</b>.  
+              Please make sure you’ve requested to join the WhatsApp group, 
+              as all updates will be shared there.
+            </p>
+
+            <p>
+              Please ensure that you complete the <b>remaining payment</b> 
+              <u>at least 2 days before the trek</u> 
+              for a smooth and hassle-free trekking experience.
+            </p>
+
+            <p>
+              Only after the <b>complete payment</b>, your trek seat will be fully confirmed.
+            </p>
+
+            <p>
+              Get ready for an exciting adventure and a day full of unforgettable memories! 🌄
+            </p>
+
+            <p>
+              For assistance, contact us at 
+              <b>6260499299</b> / <b>6204 289 831</b>.
+            </p>
+
+            <p style="margin-top:10px;">
+              Warm regards,<br/>
+              <b>Team TirthGhumo</b>
+            </p>
+          </div>
+        `,
+      });
+
+      return new NextResponse(
+        `<html><body style="font-family:Arial; text-align:center; padding:50px;">
+          <h2 style="color:green;">Partial Payment Approved!</h2>
+          <p>A partial payment email has been sent to <b>${email}</b>.</p>
+        </body></html>`,
+        { headers: { "Content-Type": "text/html" } }
+      );
+    }
     await transporter.sendMail({
       from: `"TirthGhumo" <${process.env.EMAIL_USER}>`,
       to: email,
@@ -55,7 +164,7 @@ export async function GET(req) {
         <div style="font-family:Arial, sans-serif; line-height:1.6; padding:20px;">
           <h2 style="color:#ff6600;">Hey ${name} 🌿</h2>
           <p>
-            Great news — your booking for the <b>1Day Adventure Trek</b> with TirthGhumo is <b>confirmed!</b> 
+            Great news — your booking for the <b>1Day Mrignnath Trek</b> with TirthGhumo is <b>confirmed!</b> on <b>23rd November</b>
 
           </p>
           <pYour payment has been received successfully on <b>Date:</b> ${dateTime}</p> 
