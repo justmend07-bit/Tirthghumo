@@ -26,7 +26,17 @@ export async function GET(req) {
         pass: process.env.EMAIL_PASS,
       },
     });
+    const date = new Date().toLocaleDateString("en-IN", {
+  timeZone: "Asia/Kolkata",
+});
 
+const time = new Date().toLocaleTimeString("en-IN", {
+  timeZone: "Asia/Kolkata",
+  hour: "2-digit",
+  minute: "2-digit",
+});
+
+    const dateTime = `${date} — ${time}`;
     const safeName = name ? name : "there";
 
     // Send decline email to the user
@@ -36,7 +46,8 @@ export async function GET(req) {
       subject: "Update on Your TirthGhumo Booking",
       html: `
         <div style="font-family:Arial, sans-serif; line-height:1.6; padding:20px;">
-
+          <p>Date: <b>${dateTime}</b></p>
+          
           <p>Hey ${safeName},</p>
 
           <p>
@@ -93,13 +104,18 @@ export async function GET(req) {
         pass: process.env.EMAIL_PASS,
       },
     });
-    const date = new Date().toLocaleDateString("en-IN");
-    const time = new Date().toLocaleTimeString("en-IN", {
-      hour: "2-digit",
-      minute: "2-digit",
-    });
+    
+   const date = new Date().toLocaleDateString("en-IN", {
+  timeZone: "Asia/Kolkata",
+});
+
+const time = new Date().toLocaleTimeString("en-IN", {
+  timeZone: "Asia/Kolkata",
+  hour: "2-digit",
+  minute: "2-digit",
+});
+
     const dateTime = `${date} — ${time}`;
- 
     if (Number(price) === 500) {
       await transporter.sendMail({
         from: `"TirthGhumo" <${process.env.EMAIL_USER}>`,
@@ -107,13 +123,14 @@ export async function GET(req) {
         subject: "Partial Payment Received – Action Required",
         html: `
           <div style="font-family:Arial, sans-serif; line-height:1.6; padding:20px;">
+            <p>Date: <b>${dateTime}</b></p>
             <h2 style="color:#ff6600;">Hey ${name} 🌿</h2>
 
             <p>
               We have received your <b>partial payment of ₹500</b> for 
               <b>1 Day Mrignnath Trek on 23rd November</b>.
             </p>
-
+              
             <p>
               All essential trip details, including timings and instructions, 
               will be shared shortly on <b>WhatsApp</b>.  
@@ -137,7 +154,7 @@ export async function GET(req) {
 
             <p>
               For assistance, contact us at 
-              <b>6260499299</b> / <b>6204 289 831</b>.
+              <b>6260499299</b> / <b>6204289831</b>.
             </p>
 
             <p style="margin-top:10px;">
@@ -167,15 +184,15 @@ export async function GET(req) {
             Great news — your booking for the <b>1Day Mrignnath Trek</b> with TirthGhumo is <b>confirmed!</b> on <b>23rd November</b>
 
           </p>
-          <pYour payment has been received successfully on <b>Date:</b> ${dateTime}</p> 
+          <p> Your payment has been approved successfully on <b>${dateTime}</b> </p> 
           <p>
             All essential trip details, including timings and instructions, will be shared shortly on WhatsApp.
             Please make sure you’ve requested to join the WhatsApp group, as all updates will be shared there.
-            </br>
-            If you need any help or have questions, feel free to contact us at <b>6260499299</b>.
-            </br>
+            <br/>
+            If you need any help or have questions, feel free to contact us at <b>6260499299 / 6204289831</b>.
+            <br/>
             Get ready for an exciting adventure and a day full of unforgettable memories!
-            </br>
+            <br/>
             Warm regards,
             Team TirthGhumo
           </p>
