@@ -114,7 +114,7 @@ export async function POST(req) {
     // ✅ Mail options
     const mailOptions = {
       from: `"TirthGhumo" <${process.env.EMAIL_USER}>`,
-      to: "justmend07@gmail.com", // Admin email(s)
+      to: "tirthghumo@gmail.com", // Admin email(s)
       subject: `Approval needed: ${fullName}`,
       html: htmlBody,
       attachments: [
