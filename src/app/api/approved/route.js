@@ -51,7 +51,7 @@ export async function GET(req) {
 
           <p>
             If you believe this is an error, please feel free to reach out to us at  
-            <b>6260499299</b> — we’ll be happy to help resolve the issue.
+            <b>6260499299 / 6204289831</b> — we’ll be happy to help resolve the issue.
           </p>
 
           <p>
