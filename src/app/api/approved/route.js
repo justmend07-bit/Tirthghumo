@@ -181,7 +181,7 @@ const time = new Date().toLocaleTimeString("en-IN", {
         <div style="font-family:Arial, sans-serif; line-height:1.6; padding:20px;">
           <h2 style="color:#ff6600;">Hey ${name} 🌿</h2>
           <p>
-            Great news — your booking for the <b>1Day Mrignnath Trek</b> with TirthGhumo is <b>confirmed</b> for <b>7th December!</b>
+            Great news — your booking for the <b>1Day Mrignnath Trek</b> with TirthGhumo is <b>confirmed</b> for <b>7th December 2025!</b>
 
           </p>
           <p> Your payment has been approved successfully on <b>${dateTime}</b> </p> 
