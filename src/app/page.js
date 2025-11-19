@@ -285,7 +285,7 @@ export default function TrekRegistration() {
         </div>
         
         {/* Notice */}        
-        <div className="w-full bg-yellow-100 border border-yellow-300 rounded-xl px-4 py-3 md:px-6 md:py-4 flex flex-col md:flex-row items-start md:items-center gap-3 mt-5">
+        <div className="w-full bg-white border border-yellow-300 rounded-xl px-4 py-3 md:px-6 md:py-4 flex flex-col md:flex-row items-start md:items-center gap-3 mt-5">
 
         {/* Icon */}
         <HiOutlineInformationCircle className="text-yellow-600 text-2xl md:text-3xl mt-0.5 shrink-0" />
