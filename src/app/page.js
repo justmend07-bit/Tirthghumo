@@ -273,7 +273,7 @@ export default function TrekRegistration() {
           <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-4">
             <h1 className="text-5xl font-bold mb-3">1 Day Mrigannath Trek</h1>
             <p className="text-3xl font-bold mb-6">Bhojpur/Bhudni</p>
-            <p className="text-lg mb-6">November 23, 2025 | Join the Adventure</p>
+            <p className="text-lg mb-6">December 7, 2025 | Join the Adventure</p>
             <a
               href="#register"
               className="bg-green-700 hover:bg-green-800 text-white px-8 py-3 rounded-full font-semibold transition-colors"
