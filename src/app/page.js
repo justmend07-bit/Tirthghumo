@@ -6,6 +6,7 @@ import Image from 'next/image';
 import useEmblaCarousel from 'embla-carousel-react';
 import { useCallback, useEffect } from 'react';
 import { ArrowLeftCircle, ArrowRightCircle, Star } from 'lucide-react';
+import { HiOutlineInformationCircle } from "react-icons/hi";
 import { Menu, X } from "lucide-react";
 
 
@@ -280,6 +281,25 @@ export default function TrekRegistration() {
             >
               Register Now
             </a>
+          </div>
+        </div>
+        
+        {/* Notice */}        
+        <div className="w-full bg-yellow-100 border border-yellow-300 rounded-xl px-4 py-3 md:px-6 md:py-4 flex flex-col md:flex-row items-start md:items-center gap-3 mt-5">
+
+        {/* Icon */}
+        <HiOutlineInformationCircle className="text-yellow-600 text-2xl md:text-3xl mt-0.5 shrink-0" />
+
+        {/* Text */}
+        <div className="text-left leading-snug md:leading-normal">
+            <p className="text-yellow-900 font-semibold text-sm md:text-base">
+            <b>Registrations for the November 23rd trek are now closed.</b>
+            </p>
+
+            <p className="text-yellow-800 text-xs md:text-sm mt-1">
+            <span className="font-semibold">We're excited to see you on our next adventure on</span>
+            &nbsp;<b>7th December (Registrations are open)</b>!
+            </p>
           </div>
         </div>
 
