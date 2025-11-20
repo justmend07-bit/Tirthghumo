@@ -13,7 +13,7 @@ export default function Footer() {
                         At <span className="font-bold italic">Tirth Ghumo</span>, we believe every journey should reflect our motto —{" "}
                         <span className="font-bold italic">Aastha Bhi, Suvidha Bhi.</span> As a trusted travel agency, we organize hassle-free
                         spiritual tours designed for your comfort and peace of mind. With{" "}
-                        <span className="font-bold">800+ happy travelers</span>, we’re committed to making every trip a meaningful and memorable
+                        <span className="font-bold">1500+ happy travelers</span>, we’re committed to making every trip a meaningful and memorable
                         experience.
                     </p>
 
