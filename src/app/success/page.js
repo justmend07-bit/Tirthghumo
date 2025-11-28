@@ -142,7 +142,7 @@ export default function SuccessPage() {
                     <div className='bg-green-50 rounded-lg flex flex-col justify-between p-8 mb-4 gap-3'>
                         <h2 className='text-black text-lg '>Join the conversation!</h2>
                         <p className="text-green-500 text-sm font-serif"> Connect with the fellow trekkers and get live updates.</p>
-                        <a href="https://chat.whatsapp.com/JNJWMOENHvuAP8BJidrxaM?mode=wwt" className="bg-green-400 hover:bg-green-500 rounded-sm p-3  flex justify-around items-center text-sm hover:cursor-pointer"><FaWhatsapp className="text-3xl mx-2" />Click to join 1Day Trek Whatsapp Group</a>
+                        <a href="https://chat.whatsapp.com/G7K7vhudOUuKYUZp8muDAf?mode=hqrt2" className="bg-green-400 hover:bg-green-500 rounded-sm p-3  flex justify-around items-center text-sm hover:cursor-pointer"><FaWhatsapp className="text-3xl mx-2" />Click to join 1Day Trek Whatsapp Group</a>
                     </div>
                 
 
@@ -185,5 +185,6 @@ export default function SuccessPage() {
         </div>
     );
 }
+
 
 
