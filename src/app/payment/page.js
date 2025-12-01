@@ -4,7 +4,7 @@ import { useRouter } from 'next/navigation';
 import Image from 'next/image'
 import { Menu, X } from "lucide-react";
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+
 
 export default function PaymentPage() {
     const router = useRouter();
@@ -90,38 +90,24 @@ export default function PaymentPage() {
 
 
         try {
-             // First form data
-            const data1 = data;
- const response1 = await fetch(`${API_URL}/odt_booking`, {
-                method: 'POST',
-                body: data1,
-            });
-            if (!response1.ok) {
-        alert("Failed to submit registration to server. Please try again.");
-        setIsSubmitting(false);
-        return;
-    }
-            // Clone FormData for second request
-            const data2 = new FormData();
-            for (const [key, value] of data.entries()) {
-            data2.append(key, value);
-            }
-           
-            const response2 = await fetch(`${BASE_URL}/api/admin`, {
-                method: 'POST',
-                body: data2,
-            });
+             // First form submission
+        const response1 = await fetch(`${API_URL}/odt_booking`, {
+            method: 'POST',
+            body: data,
+        });
 
-            if (response1.ok && response2.ok) {
-                alert('Registration complete!');
-                localStorage.removeItem('RegistrationFormData');
-                sessionStorage.setItem('paymentSuccess', 'true'); // to handle direct access to success page
-                router.push('/success');
-            } else {
+        if (!response1.ok) {
+            alert("Failed to submit registration to server. Please try again.");
+            setIsSubmitting(false);
+            return;
+        }
 
+        // SUCCESS
+        alert('Registration complete!');
+        localStorage.removeItem('RegistrationFormData');
+        sessionStorage.setItem('paymentSuccess', 'true');
+        router.push('/success');
 
-                alert('Failed to submit data. Please try again.');
-            }
         } catch (error) {
             alert('Network error while sending data to backend.');
         } finally {
